@@ -1,0 +1,8 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "a6e5db09e19e638c1033722cdd6f2405"
+build_time: [541405798, 508933000]
+inputs:
+  "/Users/netnorimingconception/Desktop/CALayer/CALayer/ViewController.swift": [541405238, 0]
+  "/Users/netnorimingconception/Desktop/CALayer/CALayer/ControlRegionView.swift": [541405798, 0]
+  "/Users/netnorimingconception/Desktop/CALayer/CALayer/AppDelegate.swift": [541336593, 0]
+  "/Users/netnorimingconception/Desktop/CALayer/CALayer/ConstValue.swift": [541401812, 0]
