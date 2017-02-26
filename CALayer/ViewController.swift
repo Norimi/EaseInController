@@ -10,37 +10,36 @@ import UIKit
 import QuartzCore
 
 class ViewController: UIViewController {
-    var image = UIImage()
-    var imageLayer = CALayer()
-    var btn = UIButton()
+    var classedControlRegion = ControlRegionView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        image = UIImage.init(named: "type.png")!
-        btn.layer.contents = self.image.cgImage
-        btn.layer.frame = CGRect.init(x: 0, y: 0, width: 200, height: 160)
-        btn.layer.position = CGPoint.init(x: 0, y: 0)
-        self.view.addSubview(btn)
-        self.view.layer.addSublayer(btn.layer)
-        //moveLayer(imageLayer)
+        setDefault()
     }
-
+    
+    func setDefault(){
+        classedControlRegion.layer.frame = CGRect.init(x:30, y:240, width:310, height:60)
+        classedControlRegion.floatingBtn.addTarget(self, action: #selector(commitAnimations), for: .touchUpInside)
+        self.view.addSubview(classedControlRegion)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func moveLayer(_ layer:CALayer) {
-        CATransaction.begin()
-        CATransaction.setAnimationDuration(5.0)
-        layer.position = CGPoint.init(x: layer.position.x + 100, y: layer.position.y + 200)
-        //layer.opacity = 0
-        CATransaction.commit()
-    }
+    func commitAnimations(){
+        
+        //classedControlRegion.easeInControlView()
+        if (classedControlRegion.bounds).contains(classedControlRegion.controlview.frame)
+        {
+            //view is completely out of bounds of its super view.
+            classedControlRegion.easeOutControlView()
+        }else {
+            classedControlRegion.easeInControlView()
 
-    @IBAction func moveBtnTouchUpInside(_ sender: Any) {
-        moveLayer(btn.layer)
-    }
+        }
 
+    }
+    
 }
 
